@@ -886,45 +886,210 @@ public class InsertCl extends javax.swing.JPanel {
         boolean ValNombre = ValidarEntradas(name.getText(), " Nombre");
         if (ValNombre == false) {
             MensajeError("Campo vacio: Nombre", name);
+            return;
         } else {
             boolean ValApp = ValidarEntradas(ap_p.getText(), " Apellido paterno");
             if (ValApp == false) {
                 MensajeError("Campo vacio: Apellido parterno", ap_p);
+                return;
             } else {
-                boolean ValApm = ValidarEntradas(ap_m.getText(), " Apellido paterno");
+                boolean ValApm = ValidarEntradas(ap_m.getText(), " Apellido materno");
                 if (ValApm == false) {
                     MensajeError("Campo vacio: Apellido materno", ap_m);
+                    return;
                 } else {
-                    for (String nombre_completo : cex.getNombre_completo()) {
-                        if (nombre_completo.toLowerCase().equals(name.getText().toLowerCase().trim() + " " + ap_p.getText().toLowerCase().trim() + " " + ap_m.getText().toLowerCase().trim())) {
-                            MensajeError("Error: Nombre ya existente", name);
+                    if (cex.getNombre_completo().length > 0) {
+                        for (String nombre_completo : cex.getNombre_completo()) {
+                            if (nombre_completo.toLowerCase().equals(name.getText().toLowerCase().trim() + " " + ap_p.getText().toLowerCase().trim() + " " + ap_m.getText().toLowerCase().trim())) {
+                                MensajeError("Error: Nombre ya existente", name);
+                                return;
+                            } else {
+                                System.out.println("entrado año");
+                                boolean ValAñ = ValidarEntradas(Año.getText(), "Año");
+                                if (ValAñ == false) {
+                                    System.out.println("año false");
+                                    MensajeError("Campo vacio: Año", Año);
+                                    return;
+                                } else {
+                                    System.out.println("año true");
+                                    if (Año.getText().trim().length() < 4) {
+                                        MensajeError("Año invalido", Año);
+                                        return;
+                                    } else {
+                                        boolean ValM = ValidarEntradas(Mes.getText(), "Mes");
+                                        if (ValM == false) {
+                                            MensajeError("Campo vacio: Mes", Mes);
+                                            return;
+                                        } else {
+                                            if (Mes.getText().trim().length() < 2) {
+                                                MensajeError("Mes invalido", Mes);
+                                                return;
+                                            } else {
+                                                boolean ValD = ValidarEntradas(Dia.getText(), "Dia");
+                                                if (ValD == false) {
+                                                    MensajeError("Campo vacio: Dia", Dia);
+                                                    return;
+                                                } else {
+                                                    if (Dia.getText().trim().length() < 2) {
+                                                        MensajeError("Dia invalido", Dia);
+                                                        return;
+                                                    } else {
+                                                        boolean ValC = ValidarEntradas(Curp.getText(), " Curp");
+                                                        if (ValC == false) {
+                                                            MensajeError("Campo vacio: Curp", Curp);
+                                                            return;
+                                                        } else {
+                                                            for (String curp1 : cex.getCurp()) {
+                                                                if (curp1.toLowerCase().equals(Curp.getText().toLowerCase().trim())) {
+                                                                    MensajeError("Error: Curp ya existente", Curp);
+                                                                    return;
+                                                                } else {
+                                                                    boolean vCURP = validarCURP(Curp.getText());
+                                                                    if (vCURP == false) {
+                                                                        MensajeError("Curp invalida", Curp);
+                                                                        return;
+                                                                    } else {
+                                                                        boolean Valrfc = ValidarEntradas(RFC.getText(), " RFC");
+                                                                        if (Valrfc == false) {
+                                                                            rfco = "Sin RFC";
+                                                                        } else {
+                                                                            boolean vRFC = validarRfc(RFC.getText());
+                                                                            if (vRFC == false) {
+                                                                                MensajeError("RFC invalido", RFC);
+                                                                                return;
+                                                                            } else {
+                                                                                for (String rfc1 : cex.getRfc()) {
+                                                                                    if (rfc1.toLowerCase().equals(RFC.getText().toLowerCase().trim())) {
+                                                                                        MensajeError("Error: RFC ya existente", RFC);
+                                                                                        return;
+                                                                                    } else {
+                                                                                        rfco = RFC.getText();
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                        boolean Valt = ValidarEntradas(Telefono.getText(), " Numero de telefono");
+                                                                        if (Valt == false) {
+                                                                            telefonoo = "Sin numero";
+                                                                        } else {
+                                                                            telefonoo = Telefono.getText();
+                                                                        }
+                                                                        boolean ValCel = ValidarEntradas(Celular.getText(), " Numero de celular");
+                                                                        if (ValCel == false) {
+                                                                            MensajeError("Campo vacio: Celular", Celular);
+                                                                            return;
+                                                                        } else {
+                                                                            if (Celular.getText().trim().length() < 10) {
+                                                                                MensajeError("Numero de celular invalido", Celular);
+                                                                                return;
+                                                                            } else {
+                                                                                for (String numero_contacto : cex.getNumero_contacto()) {
+                                                                                    if (numero_contacto.equals(Celular.getText().trim())) {
+                                                                                        MensajeError("Error: Numero de celular ya existente", Celular);
+                                                                                        return;
+                                                                                    } else {
+                                                                                        boolean ValEm = ValidarEntradas(Email.getText(), " Email");
+                                                                                        if (ValEm == false) {
+                                                                                            emailo = "Sin email";
+                                                                                        } else {
+                                                                                            boolean vEmail = validarEmail(Email.getText());
+                                                                                            if (vEmail == false) {
+                                                                                                MensajeError("Email invalido", Email);
+                                                                                                return;
+                                                                                            } else {
+                                                                                                emailo = Email.getText();
+                                                                                            }
+                                                                                        }///////////
+                                                                                        boolean ValMu = ValidarEntradas(Municipio.getText(), " Municipio");
+                                                                                        if (ValMu == false) {
+                                                                                            MensajeError("Campo vacio: Municipio", Municipio);
+                                                                                            return;
+                                                                                        } else {
+                                                                                            boolean ValRe = ValidarEntradas(Residencia.getText(), " Col/barrio/fracc");
+                                                                                            if (ValRe == false) {
+                                                                                                MensajeError("Campo vacio: Residencia", Residencia);
+                                                                                                return;
+                                                                                            } else {
+                                                                                                boolean ValNC = ValidarEntradas(Nombre_calle.getText(), " Calle");
+                                                                                                if (ValNC == false) {
+                                                                                                    MensajeError("Campo vacio: Nombre de calle", Nombre_calle);
+                                                                                                    return;
+                                                                                                } else {
+                                                                                                    boolean ValRef = ValidarEntradas(Referencia.getText(), " Calle de referencia");
+                                                                                                    if (ValRef == false) {
+                                                                                                        MensajeError("Campo vacio: Calle de referencia", Referencia);
+                                                                                                        return;
+                                                                                                    } else {
+                                                                                                        boolean ValMa = ValidarEntradas(Manzana.getText(), " Num. Manz");
+                                                                                                        if (ValMa == false) {
+                                                                                                            MensajeError("Campo vacio: Numero de Manzana", Manzana);
+                                                                                                            return;
+                                                                                                        } else {
+                                                                                                            boolean ValLt = ValidarEntradas(Lote.getText(), " Num. Lt");
+                                                                                                            if (ValLt == false) {
+                                                                                                                MensajeError("Campo vacio: Numero de Lote", Lote);
+                                                                                                                return;
+                                                                                                            } else {
+                                                                                                                new MostrarC().show();
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }///////////////////////////
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }////////////////////
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }///////////////
+                    } else {
+                        System.out.println("entrado año");
+                        boolean ValAñ = ValidarEntradas(Año.getText(), "Año");
+                        if (ValAñ == false) {
+                            System.out.println("año false");
+                            MensajeError("Campo vacio: Año", Año);
                             return;
                         } else {
-                            boolean ValAñ = ValidarEntradas(Año.getText(), "Año");
-                            if (ValAñ == false) {
-                                MensajeError("Campo vacio: Año", Año);
+                            System.out.println("año true");
+                            if (Año.getText().trim().length() < 4) {
+                                MensajeError("Año invalido", Año);
+                                return;
                             } else {
-                                if (Año.getText().trim().length() < 4) {
-                                    MensajeError("Año invalido", Año);
+                                boolean ValM = ValidarEntradas(Mes.getText(), "Mes");
+                                if (ValM == false) {
+                                    MensajeError("Campo vacio: Mes", Mes);
+                                    return;
                                 } else {
-                                    boolean ValM = ValidarEntradas(Mes.getText(), "Mes");
-                                    if (ValM == false) {
-                                        MensajeError("Campo vacio: Mes", Mes);
+                                    if (Mes.getText().trim().length() < 2) {
+                                        MensajeError("Mes invalido", Mes);
+                                        return;
                                     } else {
-                                        if (Mes.getText().trim().length() < 2) {
-                                            MensajeError("Mes invalido", Mes);
+                                        boolean ValD = ValidarEntradas(Dia.getText(), "Dia");
+                                        if (ValD == false) {
+                                            MensajeError("Campo vacio: Dia", Dia);
+                                            return;
                                         } else {
-                                            boolean ValD = ValidarEntradas(Dia.getText(), "Dia");
-                                            if (ValD == false) {
-                                                MensajeError("Campo vacio: Dia", Dia);
+                                            if (Dia.getText().trim().length() < 2) {
+                                                MensajeError("Dia invalido", Dia);
+                                                return;
                                             } else {
-                                                if (Dia.getText().trim().length() < 2) {
-                                                    MensajeError("Dia invalido", Dia);
+                                                boolean ValC = ValidarEntradas(Curp.getText(), " Curp");
+                                                if (ValC == false) {
+                                                    MensajeError("Campo vacio: Curp", Curp);
+                                                    return;
                                                 } else {
-                                                    boolean ValC = ValidarEntradas(Curp.getText(), " Curp");
-                                                    if (ValC == false) {
-                                                        MensajeError("Campo vacio: Curp", Curp);
-                                                    } else {
+                                                    if (cex.getCurp().length > 0) {
                                                         for (String curp1 : cex.getCurp()) {
                                                             if (curp1.toLowerCase().equals(Curp.getText().toLowerCase().trim())) {
                                                                 MensajeError("Error: Curp ya existente", Curp);
@@ -933,6 +1098,7 @@ public class InsertCl extends javax.swing.JPanel {
                                                                 boolean vCURP = validarCURP(Curp.getText());
                                                                 if (vCURP == false) {
                                                                     MensajeError("Curp invalida", Curp);
+                                                                    return;
                                                                 } else {
                                                                     boolean Valrfc = ValidarEntradas(RFC.getText(), " RFC");
                                                                     if (Valrfc == false) {
@@ -1029,6 +1195,161 @@ public class InsertCl extends javax.swing.JPanel {
                                                                 }
                                                             }
                                                         }////////////////////
+                                                    } else {
+
+                                                        boolean vCURP = validarCURP(Curp.getText());
+                                                        if (vCURP == false) {
+                                                            MensajeError("Curp invalida", Curp);
+                                                            return;
+                                                        } else {
+                                                            boolean Valrfc = ValidarEntradas(RFC.getText(), " RFC");
+                                                            if (Valrfc == false) {
+                                                                rfco = "Sin RFC";
+                                                            } else {
+                                                                boolean vRFC = validarRfc(RFC.getText());
+                                                                if (vRFC == false) {
+                                                                    MensajeError("RFC invalido", RFC);
+                                                                    return;
+                                                                } else {
+                                                                    for (String rfc1 : cex.getRfc()) {
+                                                                        if (rfc1.toLowerCase().equals(RFC.getText().toLowerCase().trim())) {
+                                                                            MensajeError("Error: RFC ya existente", RFC);
+                                                                            return;
+                                                                        } else {
+                                                                            rfco = RFC.getText();
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                            boolean Valt = ValidarEntradas(Telefono.getText(), " Numero de telefono");
+                                                            if (Valt == false) {
+                                                                telefonoo = "Sin numero";
+                                                            } else {
+                                                                telefonoo = Telefono.getText();
+                                                            }
+                                                            boolean ValCel = ValidarEntradas(Celular.getText(), " Numero de celular");
+                                                            if (ValCel == false) {
+                                                                MensajeError("Campo vacio: Celular", Celular);
+                                                                return;
+                                                            } else {
+                                                                if (Celular.getText().trim().length() < 10) {
+                                                                    MensajeError("Numero de celular invalido", Celular);
+                                                                    return;
+                                                                } else {
+                                                                    if (cex.getNumero_contacto().length > 0) {
+                                                                        for (String numero_contacto : cex.getNumero_contacto()) {
+                                                                            if (numero_contacto.equals(Celular.getText().trim())) {
+                                                                                MensajeError("Error: Numero de celular ya existente", Celular);
+                                                                                return;
+                                                                            } else {
+                                                                                boolean ValEm = ValidarEntradas(Email.getText(), " Email");
+                                                                                if (ValEm == false) {
+                                                                                    emailo = "Sin email";
+                                                                                } else {
+                                                                                    boolean vEmail = validarEmail(Email.getText());
+                                                                                    if (vEmail == false) {
+                                                                                        MensajeError("Email invalido", Email);
+                                                                                        return;
+                                                                                    } else {
+                                                                                        emailo = Email.getText();
+                                                                                    }
+                                                                                }///////////
+                                                                                boolean ValMu = ValidarEntradas(Municipio.getText(), " Municipio");
+                                                                                if (ValMu == false) {
+                                                                                    MensajeError("Campo vacio: Municipio", Municipio);
+                                                                                    return;
+                                                                                } else {
+                                                                                    boolean ValRe = ValidarEntradas(Residencia.getText(), " Col/barrio/fracc");
+                                                                                    if (ValRe == false) {
+                                                                                        MensajeError("Campo vacio: Residencia", Residencia);
+                                                                                        return;
+                                                                                    } else {
+                                                                                        boolean ValNC = ValidarEntradas(Nombre_calle.getText(), " Calle");
+                                                                                        if (ValNC == false) {
+                                                                                            MensajeError("Campo vacio: Nombre de calle", Nombre_calle);
+                                                                                            return;
+                                                                                        } else {
+                                                                                            boolean ValRef = ValidarEntradas(Referencia.getText(), " Calle de referencia");
+                                                                                            if (ValRef == false) {
+                                                                                                MensajeError("Campo vacio: Calle de referencia", Referencia);
+                                                                                                return;
+                                                                                            } else {
+                                                                                                boolean ValMa = ValidarEntradas(Manzana.getText(), " Num. Manz");
+                                                                                                if (ValMa == false) {
+                                                                                                    MensajeError("Campo vacio: Numero de Manzana", Manzana);
+                                                                                                    return;
+                                                                                                } else {
+                                                                                                    boolean ValLt = ValidarEntradas(Lote.getText(), " Num. Lt");
+                                                                                                    if (ValLt == false) {
+                                                                                                        MensajeError("Campo vacio: Numero de Lote", Lote);
+                                                                                                        return;
+                                                                                                    } else {
+                                                                                                        new MostrarC().show();
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }///////////////////////////
+                                                                    } else {
+
+                                                                        boolean ValEm = ValidarEntradas(Email.getText(), " Email");
+                                                                        if (ValEm == false) {
+                                                                            emailo = "Sin email";
+                                                                        } else {
+                                                                            boolean vEmail = validarEmail(Email.getText());
+                                                                            if (vEmail == false) {
+                                                                                MensajeError("Email invalido", Email);
+                                                                                return;
+                                                                            } else {
+                                                                                emailo = Email.getText();
+                                                                            }
+                                                                        }///////////
+                                                                        boolean ValMu = ValidarEntradas(Municipio.getText(), " Municipio");
+                                                                        if (ValMu == false) {
+                                                                            MensajeError("Campo vacio: Municipio", Municipio);
+                                                                            return;
+                                                                        } else {
+                                                                            boolean ValRe = ValidarEntradas(Residencia.getText(), " Col/barrio/fracc");
+                                                                            if (ValRe == false) {
+                                                                                MensajeError("Campo vacio: Residencia", Residencia);
+                                                                                return;
+                                                                            } else {
+                                                                                boolean ValNC = ValidarEntradas(Nombre_calle.getText(), " Calle");
+                                                                                if (ValNC == false) {
+                                                                                    MensajeError("Campo vacio: Nombre de calle", Nombre_calle);
+                                                                                    return;
+                                                                                } else {
+                                                                                    boolean ValRef = ValidarEntradas(Referencia.getText(), " Calle de referencia");
+                                                                                    if (ValRef == false) {
+                                                                                        MensajeError("Campo vacio: Calle de referencia", Referencia);
+                                                                                        return;
+                                                                                    } else {
+                                                                                        boolean ValMa = ValidarEntradas(Manzana.getText(), " Num. Manz");
+                                                                                        if (ValMa == false) {
+                                                                                            MensajeError("Campo vacio: Numero de Manzana", Manzana);
+                                                                                            return;
+                                                                                        } else {
+                                                                                            boolean ValLt = ValidarEntradas(Lote.getText(), " Num. Lt");
+                                                                                            if (ValLt == false) {
+                                                                                                MensajeError("Campo vacio: Numero de Lote", Lote);
+                                                                                                return;
+                                                                                            } else {
+                                                                                                new MostrarC().show();
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }///////////////////////////
+                                                            }
+                                                        }////////////////////
+
+                                                        //
                                                     }
                                                 }
                                             }
@@ -1037,7 +1358,7 @@ public class InsertCl extends javax.swing.JPanel {
                                 }
                             }
                         }
-                    }///////////////
+                    }
                 }
             }
         }
@@ -1328,6 +1649,7 @@ public class InsertCl extends javax.swing.JPanel {
     }
 
     private boolean ValidarEntradas(String var, String comp) {
+        System.out.println(var + " " + comp);
         return !(var.equals(comp) || var.isEmpty());
     }
 
@@ -1369,6 +1691,7 @@ public class InsertCl extends javax.swing.JPanel {
         } else {
             Curpo = curp;
             return true;
+
         }
     }
 
@@ -1405,25 +1728,25 @@ public class InsertCl extends javax.swing.JPanel {
 
             }
         }
+        if (ubicacion.equals("contrato")) {
+            String[] arreglo = {"Si", "No"};
+            int opcionp = JOptionPane.showOptionDialog(null, "¿Desea descartar los cambios?", "Actualizacion", 0, JOptionPane.QUESTION_MESSAGE, null, arreglo, "Si");
+            if (arreglo[opcionp].equals("Si")) {
+                new Regresar().show();
+            } else {
+
+            }
+        }
         if (ubicacion.equals("insert cliente")) {
             String[] arreglo = {"Si", "No"};
             int opcionp = JOptionPane.showOptionDialog(null, "¿Desea descartar los datos?", "Creacion", 0, JOptionPane.QUESTION_MESSAGE, null, arreglo, "Si");
             if (arreglo[opcionp].equals("Si")) {
                 new Regresar().show();
+
             } else {
 
             }
         }
-        if(ubicacion.equals("contrato")){
-            String[] arreglo = {"Si", "No"};
-            int opcionp = JOptionPane.showOptionDialog(null, "¿Desea descartar los datos?", "Creacion", 0, JOptionPane.QUESTION_MESSAGE, null, arreglo, "Si");
-            if (arreglo[opcionp].equals("Si")) {
-                new Regresar().show();
-            } else {
-
-            }
-        }
-       
     }
 
     public class Regresar implements Runnable {

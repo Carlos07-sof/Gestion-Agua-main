@@ -18,7 +18,7 @@ public class pie_paginaDao {
     public List<pie_pagina> MostrarPie_Pagina() {
         List<pie_pagina> CL = new ArrayList<>();
 
-        String sql = "SELECT pie_pagina FROM pie_pagina ORDER BY id_pie_pagina";
+        String sql = "SELECT pie_pagina FROM pie_pagina ORDER BY id_piepagina DESC LIMIT 1";
         PreparedStatement comando = null;
         try {
             comando = conexion.conectar().prepareStatement(sql);

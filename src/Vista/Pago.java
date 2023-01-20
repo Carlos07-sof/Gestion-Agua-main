@@ -3,6 +3,7 @@ package Vista;
 import Entity.Cat_descuento;
 import Entity.Cat_pago;
 import Entity.Cliente;
+import Entity.Encabezado;
 import Entity.LecturaPago;
 import Entity.Logeo;
 import Entity.ticket_generado;
@@ -54,6 +55,8 @@ public class Pago extends javax.swing.JPanel {
             public void run() {
                 Descuentos();
                 Tipo_pago();
+                pie_pagina();
+                Encabezado();
             }
         }.start();
     }
@@ -616,7 +619,7 @@ public class Pago extends javax.swing.JPanel {
 
         public void show() {
             new Thread(this).start();
-            pie_pagina();
+            
             //Encabezado();
         }
 
@@ -639,7 +642,6 @@ public class Pago extends javax.swing.JPanel {
 
         }
     }
-    
 
     private void MensajeError(String campo_e, Component campo) {
         JOptionPane.showMessageDialog(null, campo_e, " AVISO", JOptionPane.INFORMATION_MESSAGE);
@@ -697,20 +699,25 @@ public class Pago extends javax.swing.JPanel {
     }
     String nombre_e;
     String savc;
-    String muni, estado,rfc;
-    /*private void Encabezado() {
+    String muni, estado, rfc;
+    private void Encabezado() {
         InformativoServicio info = new InformativoServicio();
         List<Encabezado> listas = info.MostrarEncabezado();
         int tam = listas.size();
         for (int i = 0; i < tam; i++) {
             nombre_e = listas.get(i).getNombre_empresa();
-            savc =  listas.get(i).getS_a_c_v();
+            savc =  listas.get(i).getSacv();
             muni =  listas.get(i).getMunicipio();
             estado =  listas.get(i).getEstado();
             rfc =  listas.get(i).getRfc();  
         }
-    }*/
+        
+        System.out.println("Nombre empresa "+ nombre_e + " SACV "+savc+" "+muni + " "+estado + " "+ " "+rfc);
+    }
+    
+    
     String pie_pag;
+
     private void pie_pagina() {
         InformativoServicio info = new InformativoServicio();
         List<pie_pagina> listas = info.MostrarPie_Pagina();
@@ -718,6 +725,7 @@ public class Pago extends javax.swing.JPanel {
         for (int i = 0; i < tam; i++) {
             pie_pag = listas.get(i).getPie_pagina();
         }
+        System.out.println("pie pagina "+ pie_pag);
     }
 
     String Lectura_pago;
@@ -953,17 +961,33 @@ public class Pago extends javax.swing.JPanel {
         TicketServicio ts = new TicketServicio();
         System.out.println(Lectura_pago + " " + consec_abono);
         ticket = ts.InsertTicket(Integer.parseInt(Lectura_pago), consec_abono);
+        pag = Float.parseFloat(Pago.getText());
+        imp = Float.parseFloat(Importe.getText());
+        float total = imp - pag;
         ticket_generado tg = new ticket_generado();
-        tg.setNombre_empresa(nombre_e+", ");
+        tg.setNombre_empresa(nombre_e + ", ");
         tg.setS_a_c_v(savc);
         tg.setMunicipio(muni);
         tg.setEstado(estado);
         tg.setRfc(rfc);
+        tg.setFolio_ticket(ticket);
+        tg.setNombre_cliente(N_cte.getText());
+        tg.setFolio_contrato(contrato_id);
+        tg.setFolio_cliente(Integer.valueOf(Contrato.getText()));
+        tg.setDireccion(Domicilio.getText());
+        tg.setMes(Integer.parseInt(mes));
+        tg.setConsumo(Integer.parseInt(consumo));
+        tg.setImporte(Double.valueOf(Importe.getText()));
+        tg.setT_pago(T_pago.getSelectedItem().toString());
+        tg.setPorcentaje(Double.valueOf(porcentaje));
+        tg.setPago(Double.valueOf(Pago.getText()));
+        tg.setTotal(Double.valueOf(total));
+        tg.setPie_pagina(pie_pag);
         System.out.println(ticket);
         if (ticket == -1) {
             JOptionPane.showMessageDialog(null, "Ticket no registrado", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            
+
             Generar_ticket gt = new Generar_ticket("null");
             gt.setSize(1022, 510);
             gt.setLocation(0, 0);

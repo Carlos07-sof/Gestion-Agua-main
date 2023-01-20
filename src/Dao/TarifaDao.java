@@ -18,7 +18,7 @@ public class TarifaDao {
     public boolean Insertar_Tarifa(int consec, int id_c,double tarifa){
         boolean status = false;
 
-        String sql = "insert into det_tipoConsumo_tarifa (consec,id_consumo,tarifa) values (?,?,?)";
+        String sql = "insert into det_tipoconsumo_tarifa (consec,id_consumo,tarifa) values (?,?,?)";
         PreparedStatement comando = null;
 
         try {

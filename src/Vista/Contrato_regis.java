@@ -550,14 +550,17 @@ public class Contrato_regis extends javax.swing.JPanel {
                 idperiodo = Integer.parseInt(Per[0]);
             }
         }
-
-        for (String[] Tari : Tarifas) {
-            if (Tari[1].equals(Tarifa.getSelectedItem())) {
-                id = Integer.parseInt(Tari[0]);
+        if (Tarifa.getSelectedIndex() > 0) {
+            for (String[] Tari : Tarifas) {
+                if (Tari[1].equals(Tarifa.getSelectedItem())) {
+                    id = Integer.parseInt(Tari[0]);
+                }
             }
         }
+        
 
         if (Municipio.getText().equals(" Municipio") || Municipio.getText().isEmpty()) {
+            
             Municipio.requestFocus();
             JOptionPane.showMessageDialog(null, "Campo vacio: Municipio", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -594,6 +597,7 @@ public class Contrato_regis extends javax.swing.JPanel {
                                         } else {
                                             if (Tarifa.getSelectedItem().equals("Selecciona una opción")) {
                                                 Tarifa.requestFocus();
+                                                System.out.println("Tarifa " + Tarifa.getSelectedItem());
                                                 JOptionPane.showMessageDialog(null, "Campo vacio: Tarifa", "Aviso", JOptionPane.INFORMATION_MESSAGE);
                                             } else {
                                                 new Hilos().show();
@@ -613,7 +617,7 @@ public class Contrato_regis extends javax.swing.JPanel {
         if (ubicacion.equals("insert cliente")) {
             JOptionPane.showMessageDialog(this, "El contrato no puede ser cancelado", "Contrato", JOptionPane.INFORMATION_MESSAGE);
         }
-        if (ubicacion.equals("editar contrato")||ubicacion.equals("contrato")) {
+        if (ubicacion.equals("editar contrato") || ubicacion.equals("contrato")) {
             Contrato_v p1 = new Contrato_v();
             p1.setSize(1030, 500);
             p1.setLocation(0, 0);
@@ -721,7 +725,7 @@ public class Contrato_regis extends javax.swing.JPanel {
 
         public void show() {
             new Thread(this).start();
-            
+
         }
 
         public void run() {
@@ -737,7 +741,7 @@ public class Contrato_regis extends javax.swing.JPanel {
         }
     }
     String informativos;
-    
+
     private void Informativo() {
         InformativoServicio info = new InformativoServicio();
         List<Informativo> listas = info.MostrarInformacion();
@@ -787,7 +791,7 @@ public class Contrato_regis extends javax.swing.JPanel {
         cg.setManzana(Manzana.getText());
         cg.setLote(Lote.getText());
         cg.setInformativo(informativos);
-        
+
         es.setResultinsert(cs.InsertarContrato(Municipio.getText(), Residencia.getText(), Nombre_calle.getText(), Referencia.getText(), observaciones, Integer.parseInt(Manzana.getText()), Integer.parseInt(Lote.getText()), id, idconsumo, idperiodo, folio, status));
         if (es.getResultinsert() == -1) {
             JOptionPane.showMessageDialog(null, "Hubo un error", "Error", JOptionPane.INFORMATION_MESSAGE);
