@@ -45,14 +45,14 @@ public class Generar_ticket extends javax.swing.JPanel implements Printable{
         folio_cliente.setText(String.valueOf(tg.getFolio_cliente()));
         folio_contrato1.setText(String.valueOf(tg.getFolio_contrato()));
         domicilio.setText(tg.getDireccion());
-        mes_pago.setText(String.valueOf(tg.getMes()));
-        tipo_consumo.setText(String.valueOf(tg.getConsumo()));
+        mes_pago.setText(tg.getMes());
+        tipo_consumo.setText(tg.getConsumo());
         cargo_generado.setText(String.valueOf(tg.getImporte()));
         tipo_pago.setText(tg.getT_pago());
         descuento.setText(String.valueOf(tg.getPorcentaje()));
         monto_pago.setText(String.valueOf(tg.getPago()));
         total.setText(String.valueOf(tg.getTotal()));
-        pie_pagina.setText(tg.getPie_pagina());
+        pie_pagina.setText("<html><center>"+tg.getPie_pagina());
         
         
         Empresa1.setText(tg.getNombre_empresa());
@@ -188,25 +188,27 @@ public class Generar_ticket extends javax.swing.JPanel implements Printable{
         Imprimir.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         pie_pagina.setText("x");
-        Imprimir.add(pie_pagina, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 464, 420, 20));
+        pie_pagina.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        pie_pagina.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        Imprimir.add(pie_pagina, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 420, 30));
 
         jLabel8.setText("DATOS DEL PAGO");
-        Imprimir.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, -1));
+        Imprimir.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 110, -1));
 
         jLabel9.setText("----------------------------------------------------------------------------------------------------------");
         Imprimir.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
         S_a_c_v.setText("x");
-        Imprimir.add(S_a_c_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 180, 10));
+        Imprimir.add(S_a_c_v, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 110, 10));
 
         Empresa.setText("x");
-        Imprimir.add(Empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 180, 10));
+        Imprimir.add(Empresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 180, 10));
 
         muniest.setText("x");
-        Imprimir.add(muniest, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 180, 10));
+        Imprimir.add(muniest, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 200, 10));
 
         rfc.setText("x");
-        Imprimir.add(rfc, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 180, 10));
+        Imprimir.add(rfc, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 150, 10));
 
         jLabel10.setText("OPERADOR:");
         Imprimir.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 100, -1));
@@ -224,7 +226,7 @@ public class Generar_ticket extends javax.swing.JPanel implements Printable{
         Imprimir.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, -1, -1));
 
         folio_ticket.setText("x");
-        Imprimir.add(folio_ticket, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 130, -1));
+        Imprimir.add(folio_ticket, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 130, -1));
 
         jLabel13.setText("Nombre:");
         Imprimir.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
@@ -251,10 +253,10 @@ public class Generar_ticket extends javax.swing.JPanel implements Printable{
         Imprimir.add(domicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 220, -1));
 
         jLabel17.setText("DATOS DEL CLIENTE");
-        Imprimir.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
+        Imprimir.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 170, -1));
 
         jLabel18.setText("Mes del pago:");
-        Imprimir.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 70, -1));
+        Imprimir.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 90, -1));
 
         total.setText("x");
         Imprimir.add(total, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 100, -1));
@@ -263,19 +265,19 @@ public class Generar_ticket extends javax.swing.JPanel implements Printable{
         Imprimir.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, -1, -1));
 
         mes_pago.setText("x");
-        Imprimir.add(mes_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 160, -1));
+        Imprimir.add(mes_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 160, -1));
 
         jLabel20.setText("Tipo de consumo:");
         Imprimir.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
 
         tipo_consumo.setText("x");
-        Imprimir.add(tipo_consumo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 120, -1));
+        Imprimir.add(tipo_consumo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 120, -1));
 
         jLabel21.setText("Cargo generado:");
         Imprimir.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, -1));
 
         tipo_pago.setText("x");
-        Imprimir.add(tipo_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 120, -1));
+        Imprimir.add(tipo_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, 120, -1));
 
         jLabel22.setText("Descuento:");
         Imprimir.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
@@ -284,13 +286,13 @@ public class Generar_ticket extends javax.swing.JPanel implements Printable{
         Imprimir.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, -1));
 
         monto_pago.setText("x");
-        Imprimir.add(monto_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 100, -1));
+        Imprimir.add(monto_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 100, -1));
 
         descuento.setText("x");
         Imprimir.add(descuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 100, -1));
 
         cargo_generado.setText("x");
-        Imprimir.add(cargo_generado, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 120, -1));
+        Imprimir.add(cargo_generado, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 120, -1));
 
         jLabel24.setText("----------------------------------------------------------------------------------------------------------");
         Imprimir.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
@@ -416,7 +418,8 @@ public class Generar_ticket extends javax.swing.JPanel implements Printable{
         Imprimir.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, -1, -1));
 
         pie_pagina1.setText("x");
-        Imprimir.add(pie_pagina1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 460, 420, 20));
+        pie_pagina1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Imprimir.add(pie_pagina1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 460, 420, 30));
 
         jLabel46.setText("************************************************************************");
         Imprimir.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, -1, -1));

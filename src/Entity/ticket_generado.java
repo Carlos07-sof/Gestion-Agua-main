@@ -20,8 +20,8 @@ public class ticket_generado {
     private static String direccion = null;
     private static String manzana = null;
     private static String lote = null;
-    private static Integer mes = null;
-    private static Integer consumo = null;
+    private static String mes = null;
+    private static String consumo = null;
     private static Double importe = null;
     private static String t_pago = null;
     private static Double porcentaje = null;
@@ -126,19 +126,19 @@ public class ticket_generado {
         ticket_generado.lote = lote;
     }
 
-    public Integer getMes() {
+    public String getMes() {
         return mes;
     }
 
-    public void setMes(Integer mes) {
+    public void setMes(String mes) {
         ticket_generado.mes = mes;
     }
 
-    public Integer getConsumo() {
+    public String getConsumo() {
         return consumo;
     }
 
-    public void setConsumo(Integer consumo) {
+    public void setConsumo(String consumo) {
         ticket_generado.consumo = consumo;
     }
 

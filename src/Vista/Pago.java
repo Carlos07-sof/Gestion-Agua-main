@@ -975,8 +975,8 @@ public class Pago extends javax.swing.JPanel {
         tg.setFolio_contrato(contrato_id);
         tg.setFolio_cliente(Integer.valueOf(Contrato.getText()));
         tg.setDireccion(Domicilio.getText());
-        tg.setMes(Integer.parseInt(mes));
-        tg.setConsumo(Integer.parseInt(consumo));
+        tg.setMes(mes);
+        tg.setConsumo(consumo);
         tg.setImporte(Double.valueOf(Importe.getText()));
         tg.setT_pago(T_pago.getSelectedItem().toString());
         tg.setPorcentaje(Double.valueOf(porcentaje));

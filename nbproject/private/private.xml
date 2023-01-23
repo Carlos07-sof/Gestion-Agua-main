@@ -5,7 +5,7 @@
             <url>src/Vista/Pago.java</url>
             <bookmark id="1">
                 <name/>
-                <line>1054</line>
+                <line>1059</line>
                 <key/>
             </bookmark>
         </file>
@@ -16,7 +16,8 @@
             <file>file:/C:/Users/Usuario/Downloads/Gestion-Agua-main/src/Vista/Login.java</file>
             <file>file:/C:/Users/Usuario/Downloads/Gestion-Agua-main/src/Vista/Contrato_regis.java</file>
             <file>file:/C:/Users/Usuario/Downloads/Gestion-Agua-main/src/Vista/Pago.java</file>
-            <file>file:/C:/Users/Usuario/Downloads/Gestion-Agua-main/src/Servicio/InformativoServicio.java</file>
+            <file>file:/C:/Users/Usuario/Downloads/Gestion-Agua-main/src/Entity/ticket_generado.java</file>
+            <file>file:/C:/Users/Usuario/Downloads/Gestion-Agua-main/src/Vista/Generar_contrato.java</file>
         </group>
     </open-files>
 </project-private>
