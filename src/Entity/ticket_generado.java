@@ -10,8 +10,7 @@ public class ticket_generado {
     //Encabezado ticket
     private static String nombre_empresa = null;
     private static String s_a_c_v = null;
-    private static String municipio = null;
-    private static String estado = null;
+    private static String muniEstado = null;
     private static String rfc = null;
     private static Integer folio_ticket = null;
     private static Integer folio_contrato = null;
@@ -45,22 +44,14 @@ public class ticket_generado {
         ticket_generado.s_a_c_v = s_a_c_v;
     }
 
-    public String getMunicipio() {
-        return municipio;
+    public String getMuniEstado() {
+        return muniEstado;
     }
 
-    public void setMunicipio(String municipio) {
-        ticket_generado.municipio = municipio;
+    public void setMuniEstado(String muniEstado) {
+        ticket_generado.muniEstado = muniEstado;
     }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        ticket_generado.estado = estado;
-    }
-
+    
     public String getRfc() {
         return rfc;
     }

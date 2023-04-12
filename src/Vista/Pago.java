@@ -891,7 +891,7 @@ public class Pago extends javax.swing.JPanel {
         CatalogosServicio cs = new CatalogosServicio();
         List<Cat_pago> lista = cs.Tipo_pago();
         int tam = lista.size();
-        Tipo_pago = new String[tam][2];
+    Tipo_pago = new String[tam][2];
         T_pago.addItem("Seleccione una opción");
         for (int i = 0; i < tam; i++) {
             Tipo_pago[i][0] = lista.get(i).getId_pago().toString();
@@ -965,10 +965,9 @@ public class Pago extends javax.swing.JPanel {
         imp = Float.parseFloat(Importe.getText());
         float total = imp - pag;
         ticket_generado tg = new ticket_generado();
-        tg.setNombre_empresa(nombre_e + ", ");
+        tg.setNombre_empresa(nombre_e);
         tg.setS_a_c_v(savc);
-        tg.setMunicipio(muni);
-        tg.setEstado(estado);
+        tg.setMuniEstado(String.format("%s, %s",muni,estado));
         tg.setRfc(rfc);
         tg.setFolio_ticket(ticket);
         tg.setNombre_cliente(N_cte.getText());
