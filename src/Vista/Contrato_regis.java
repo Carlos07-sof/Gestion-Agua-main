@@ -122,16 +122,13 @@ public class Contrato_regis extends javax.swing.JPanel {
         Observaciones = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setForeground(new java.awt.Color(0, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Cargando.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Cargando.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-spinner-para-iphone.gif"))); // NOI18N
         add(Cargando, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 500));
 
-        Municipio.setBackground(new java.awt.Color(255, 255, 255));
         Municipio.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        Municipio.setForeground(new java.awt.Color(0, 0, 0));
         Municipio.setText(" Municipio");
         Municipio.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -153,11 +150,9 @@ public class Contrato_regis extends javax.swing.JPanel {
         });
         add(Municipio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 170, 40));
 
-        Consumo.setBackground(new java.awt.Color(255, 255, 255));
         Consumo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        Consumo.setForeground(new java.awt.Color(0, 0, 0));
         Consumo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una opción" }));
-        Consumo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Consumo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Consumo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 ConsumoItemStateChanged(evt);
@@ -189,11 +184,9 @@ public class Contrato_regis extends javax.swing.JPanel {
         });
         add(Consumo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 170, 40));
 
-        Periodo.setBackground(new java.awt.Color(255, 255, 255));
         Periodo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        Periodo.setForeground(new java.awt.Color(0, 0, 0));
         Periodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una opción" }));
-        Periodo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Periodo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Periodo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 PeriodoMousePressed(evt);
@@ -203,18 +196,14 @@ public class Contrato_regis extends javax.swing.JPanel {
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Municipio:");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 120, 20));
 
         Tipo_p.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        Tipo_p.setForeground(new java.awt.Color(0, 0, 0));
         Tipo_p.setText("Periodo a pagar:");
         add(Tipo_p, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, 150, 40));
 
-        Residencia.setBackground(new java.awt.Color(255, 255, 255));
         Residencia.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        Residencia.setForeground(new java.awt.Color(0, 0, 0));
         Residencia.setText(" Col/barrio/fracc");
         Residencia.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -236,9 +225,7 @@ public class Contrato_regis extends javax.swing.JPanel {
         });
         add(Residencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 200, 40));
 
-        Nombre_calle.setBackground(new java.awt.Color(255, 255, 255));
         Nombre_calle.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        Nombre_calle.setForeground(new java.awt.Color(0, 0, 0));
         Nombre_calle.setText(" Calle");
         Nombre_calle.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -260,9 +247,7 @@ public class Contrato_regis extends javax.swing.JPanel {
         });
         add(Nombre_calle, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 140, 40));
 
-        Referencia.setBackground(new java.awt.Color(255, 255, 255));
         Referencia.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        Referencia.setForeground(new java.awt.Color(0, 0, 0));
         Referencia.setText(" Calle de referencia");
         Referencia.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -284,9 +269,7 @@ public class Contrato_regis extends javax.swing.JPanel {
         });
         add(Referencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 70, 150, 40));
 
-        Manzana.setBackground(new java.awt.Color(255, 255, 255));
         Manzana.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        Manzana.setForeground(new java.awt.Color(0, 0, 0));
         Manzana.setText(" Num. Manz");
         Manzana.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -308,9 +291,7 @@ public class Contrato_regis extends javax.swing.JPanel {
         });
         add(Manzana, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 90, 40));
 
-        Lote.setBackground(new java.awt.Color(255, 255, 255));
         Lote.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        Lote.setForeground(new java.awt.Color(0, 0, 0));
         Lote.setText(" Num. Lt");
         Lote.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -330,67 +311,55 @@ public class Contrato_regis extends javax.swing.JPanel {
         add(Lote, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 90, 40));
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1030, 10));
 
-        Folio_c.setForeground(new java.awt.Color(0, 0, 0));
         Folio_c.setText("Folio del cliente:");
         add(Folio_c, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 30));
         add(Folio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 60, 30));
 
         Contrato.setBackground(new java.awt.Color(255, 255, 255));
         Contrato.setFont(new java.awt.Font("Roboto Light", 1, 18)); // NOI18N
-        Contrato.setForeground(new java.awt.Color(0, 0, 0));
         Contrato.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Contrato.setText("Contrato");
         add(Contrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 30));
 
         jLabel11.setBackground(new java.awt.Color(0, 0, 0));
         jLabel11.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Residencia:");
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 180, 20));
 
         jLabel12.setBackground(new java.awt.Color(0, 0, 0));
         jLabel12.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Nombre de la calle:");
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 50, 140, 20));
 
         jLabel14.setBackground(new java.awt.Color(0, 0, 0));
         jLabel14.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Numero de manzana: ");
         add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 140, 30));
 
         jLabel15.setBackground(new java.awt.Color(0, 0, 0));
         jLabel15.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Lote/Numero Exterior:");
         add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 150, 30));
 
         rerefencia.setBackground(new java.awt.Color(0, 0, 0));
         rerefencia.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        rerefencia.setForeground(new java.awt.Color(0, 0, 0));
         rerefencia.setText("Calle de referencia:");
         add(rerefencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 50, 140, 20));
 
         Tipo_c.setBackground(new java.awt.Color(0, 0, 0));
         Tipo_c.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        Tipo_c.setForeground(new java.awt.Color(0, 0, 0));
         Tipo_c.setText("Tipo de consumo:");
         add(Tipo_c, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 120, 40));
 
-        Tarifa.setBackground(new java.awt.Color(255, 255, 255));
         Tarifa.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        Tarifa.setForeground(new java.awt.Color(0, 0, 0));
-        Tarifa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Tarifa.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(Tarifa, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 160, 160, 40));
 
         tarifa.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        tarifa.setForeground(new java.awt.Color(0, 0, 0));
         tarifa.setText("Tarifa:");
         add(tarifa, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 120, 110, 40));
 
         observacione.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        observacione.setForeground(new java.awt.Color(0, 0, 0));
         observacione.setText("Observaciones: (opcional)");
         add(observacione, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 180, 40));
 
@@ -399,7 +368,7 @@ public class Contrato_regis extends javax.swing.JPanel {
         Registrar.setForeground(new java.awt.Color(255, 255, 255));
         Registrar.setText("Registrar");
         Registrar.setBorder(null);
-        Registrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Registrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Registrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegistrarActionPerformed(evt);
@@ -412,7 +381,7 @@ public class Contrato_regis extends javax.swing.JPanel {
         Regresar.setForeground(new java.awt.Color(255, 255, 255));
         Regresar.setText("Volver");
         Regresar.setBorder(null);
-        Regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegresarActionPerformed(evt);
@@ -420,10 +389,8 @@ public class Contrato_regis extends javax.swing.JPanel {
         });
         add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 100, 40));
 
-        Observaciones.setBackground(new java.awt.Color(255, 255, 255));
         Observaciones.setColumns(20);
         Observaciones.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        Observaciones.setForeground(new java.awt.Color(0, 0, 0));
         Observaciones.setRows(5);
         jScrollPane1.setViewportView(Observaciones);
 
